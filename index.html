@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask WebRTC Example</title>
+</head>
+<body>
+    <h1>Flask WebRTC Example</h1>
+
+    <video id="localVideo" autoplay playsinline></video>
+    <video id="remoteVideo" autoplay playsinline></video>
+
+    <script>
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+    .then((stream) => {
+        const localVideo = document.getElementById('localVideo');
+        localVideo.srcObject = stream;
+
+        // Add WebRTC code for signaling, peer connection, etc.
+    })
+    .catch((error) => {
+        console.error('Error accessing media devices:', error);
+    });
+
+    </script>
+</body>
+</html>
